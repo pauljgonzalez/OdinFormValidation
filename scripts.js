@@ -16,6 +16,7 @@ form.addEventListener("submit",(event) =>{
     if(!formName.validity.valid){
         showNameError()
         event.preventDefault()
+      
     }
     if (!email.validity.valid){
         event.preventDefault()
@@ -33,9 +34,12 @@ form.addEventListener("submit",(event) =>{
         event.preventDefault()
         showPhoneError()
     }
-    event.preventDefault()
-    form.reset()
-    successSubmit.innerHTML ="Form was Submitted Succesfully "
+    if(formName.validity.valid){
+        event.preventDefault()
+        form.reset()
+        successSubmit.innerHTML ="Form was Submitted Succesfully "
+    }
+    
 })
 //checks form name for errors
 formName.addEventListener("input",(event)=>{
